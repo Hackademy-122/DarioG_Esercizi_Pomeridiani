@@ -6,8 +6,9 @@ function generaNumeriCasuali(n)
     let numeriCasuali = [];
         for (i = 0; i < n; i++)
         {
-            let numeroCasuale = Math.random() * 11;
+            let numeroCasuale = Math.random() * 10;
             numeroCasuale = Math.floor(numeroCasuale);
+            
             numeriCasuali.push(numeroCasuale);
         }
         
@@ -69,7 +70,7 @@ function contaCifre(numero) {
 // Scrivi una funzione di uguaglianza che prenda in input due argomenti e restituisca TRUE se i due argomenti sono IDENTICI,
 // FALSE altrimenti.
 
-function identici(c, d)
+function identici(c, d,)
 {
     if (c !== d)
         { return !(c!==d)}
@@ -90,30 +91,23 @@ console.log(identici2)
 // Scrivi una funzione che dato un numero stampi la tabellina corrispondente.
 
 
-function stampaTabellina(numero)
-{   let tabellina = [];
-    for (i = 1; i <= 10; i++)
-    {
+function stampaTabellina(numero) {
+    for (i = 1; i <= 10; i++) {
         let risultato = numero * i;
-        risultato = numero + " x " + i + " = " + risultato
-        tabellina.push(risultato);
+        console.log(`${numero} x ${i} = ${risultato}`);
     }
-    return tabellina
 }
-let tabellina2 = stampaTabellina(6);
-console.log(tabellina2)
+stampaTabellina(5);
 
 // esercizio 6
 // Scrivi due funzioni: dato un array: let numbers = [10, 12, 78, -4, -20, 11]; una che prenda in input un array di numeri e restituisca il maggiore l'altra che restituisca il minore. 
 
 let numbers = [10, 12, 78, -4, 11]
 
-function decrescente()
+function minore2()
 {
     let min = Math.min(...numbers)
-    // per averli in ordine crescente sostituire .min con .max
     return ` il numero più piccolo è ${min}`
 }
-let minore = decrescente()
+let minore = minore2()
 console.log(minore)
-
