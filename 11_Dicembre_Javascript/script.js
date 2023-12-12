@@ -21,20 +21,20 @@ console.log(risultato)
 // esercizio2
 // Scrivi un programma che dato un array di 10 numeri interi ordinati in modo casuale li riordini in modo decrescente.
 
-function riordina()
+function riordina(arr)
 {
-    let xyz =  [6,25,9,3,147,5]
-    xyz.sort(function(a, b){return b - a});
+    
+    arr.sort(function(a, b){return b - a});
     // per ordinarli in maniera crescente invertire a - b
 
     
-    return xyz;
+    return arr;
     
 
 
 }
 
-let ordinati = riordina()
+let ordinati = riordina([25, 35, 1])
 console.log(ordinati);
 
 
@@ -44,13 +44,17 @@ console.log(ordinati);
 // Scrivi una funzione che dato un numero intero (massimo 9999) conti da quante cifre è formato.
 
 function contaCifre(numero) {
-    if (numero >= 0 && numero <= 99)
+    if (numero >= 0 && numero <= 9)
             {
-                return  `${numero} ha 2 cifre`;
+        return  `${numero} ha 1 cifra`;
+            }
+        else if (numero >= 10 && numero <= 99)
+            {
+                return `${numero} ha 3 cifre`;
             }
         else if (numero >= 100 && numero <= 999)
             {
-                return `${numero} ha 3 cifre`;
+                return `${numero} ha 4 cifre`;
             }
         else if ( numero >= 1000 && numero <= 9999 )
             {
@@ -61,7 +65,7 @@ function contaCifre(numero) {
             }
     }
     
-    let contaCifre2 = contaCifre(592)
+    let contaCifre2 = contaCifre(2)
     console.log(contaCifre2)
 
 
@@ -73,7 +77,6 @@ function identici(c, d)
 {
     if (c !== d)
         { return !(c!==d)}
-    
     else if ( c == d)
         { return ( c == d )}
     else ( c!=d)
@@ -81,7 +84,7 @@ function identici(c, d)
         return (c!=d)
         }
     }
-let identici2 = identici(1, 2)
+let identici2 = identici(1, "2")
 console.log(identici2)
 
 
@@ -90,18 +93,19 @@ console.log(identici2)
 // Scrivi una funzione che dato un numero stampi la tabellina corrispondente.
 
 
-function stampaTabellina(numero)
+function stampaTabellina(numero, na)
 {   let tabellina = [];
-    for (i = 1; i <= 10; i++)
+    for (i = 1; i <= na; i++)
     {
         let risultato = numero * i;
         risultato = numero + " x " + i + " = " + risultato
         tabellina.push(risultato);
     }
-    return tabellina
+    console.log(tabellina)
+    // return tabellina
 }
-let tabellina2 = stampaTabellina(6);
-console.log(tabellina2)
+stampaTabellina(6, 25);
+// console.log(tabellina2)
 
 // esercizio 6
 // Scrivi due funzioni: dato un array: let numbers = [10, 12, 78, -4, -20, 11]; una che prenda in input un array di numeri e restituisca il maggiore l'altra che restituisca il minore. 
