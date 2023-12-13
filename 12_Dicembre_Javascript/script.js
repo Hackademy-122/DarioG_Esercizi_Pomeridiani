@@ -3,12 +3,12 @@
 
 function contieneValore(a, b)
 {
-let arr = a;
-let incluso = arr.includes(b);
-return incluso;
+let c = a.includes(b)
+return c
 }
-let contienevalore = contieneValore([1,25,"dario","gianni"],3)
-console.log(contienevalore)
+let d = contieneValore([1, 2, 3, 58, 96, 4, "dario", "tessa", true, false], "dario")
+console.log(d);
+
 
 
 // ES 2:
@@ -19,8 +19,8 @@ function sommaArray(n)
 let somma = n.reduce((a, b) => a + b, 0);
 return somma;
 }
-let risultato = sommaArray([1, 5 ,7 ,12,35]);
-console.log(risultato);
+let somma = sommaArray([1, 5 ,7 ,12,35,47]);
+console.log(somma);
 
 // ES 3:
 // Scrivi un programma che dato un array di numeri, restituisca in output la media e tutti i valori minori della media. Esempio: Input: a = [3, 5, 10, 2, 8] Output: media = 5.6, valori minori = [3, 5, 2]
@@ -36,6 +36,17 @@ return `La media è stata ${media}, le minime sono state ${minimi}`
 }
 let temperature = temperatura([4, 5, 89, 2, 8, 36,])
 console.log(temperature)
+
+// ES 4
+// Creare una funzione javascript che prende due argomenti e restituisce tutti i numeri divisibili per il divisore dato. Il primo argomento è una array e il secondo è il divisore. findMultiples([1, 2, 3, 4, 5, 6], 2) --> [2, 4, 6]
+
+function dividi(a,b)
+{
+let c = a.filter((a)=> a%b==0)
+return c
+}
+let c = dividi([2,4,5,9,10,22], 2)
+console.log(c);
 
 
 // ES 6: 

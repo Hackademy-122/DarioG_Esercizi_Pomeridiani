@@ -11,7 +11,7 @@ let Garage = {
     "toyota": [
     {"nome": "corolla", "colore": "rosso"},
     {"nome": "yaris", "colore": "nero"},
-    {"nome": "rav4", "colore": "bianco"},
+    {"nome": "rav4", "colore": "bianca"},
     ],
     "stampaModelli": function (marca)
     {
@@ -30,6 +30,6 @@ let Garage = {
             }
     },
 }
-Garage.stampaModelli("bmw")
+Garage.stampaModelli("toyota")
 
 
