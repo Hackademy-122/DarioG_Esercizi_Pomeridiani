@@ -20,7 +20,7 @@ let somma = n.reduce((a, b) => a + b, 0);
 return somma;
 }
 let risultato = sommaArray([1, 5 ,7 ,12,35]);
-console.log("Output:", risultato);
+console.log(risultato);
 
 // ES 3:
 // Scrivi un programma che dato un array di numeri, restituisca in output la media e tutti i valori minori della media. Esempio: Input: a = [3, 5, 10, 2, 8] Output: media = 5.6, valori minori = [3, 5, 2]
@@ -34,7 +34,7 @@ let nValor = temperature.length;
 let media = somma / nValor;
 return `La media è stata ${media}, le minime sono state ${minimi}`
 }
-let temperature = temperatura([1, 5, 89, 2, 8])
+let temperature = temperatura([4, 5, 89, 2, 8, 36,])
 console.log(temperature)
 
 
@@ -44,10 +44,14 @@ console.log(temperature)
 // il risultato dovra’ dare, let filtered = [‘hackademy’, ‘Javascript’, ‘php’]
 
 
-let mixArray = [1, true, "hackademy", 100, "Javascript", false, null, "php", "dario"];
-function isString(element)
+
+function isString(a)
 {
-return typeof element === "string";
+let xx = a;
+let z = xx.filter((el) =>  typeof el === "number" )
+return z;
 }
-let filtered = mixArray.filter(isString);
-console.log(filtered);
+let filtrati = isString([1, true, "dario", 100, "tessa", false, null, NaN])
+console.log(filtrati)
+
+
