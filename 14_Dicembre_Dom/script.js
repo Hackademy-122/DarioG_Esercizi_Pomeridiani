@@ -1,97 +1,73 @@
-// // ESERCIZIO 1
-// //   Lavoriamo sul DOM. Creare 3 paragrafi in HTML e 3 bottoni. 
-
-// // Il primo bottone dovrà nascondere i 3 paragrafi e farli ricomparire
-// // il secondo bottone dovrà cambiare i colori dei paragrafi in maniera casuale
-// // il terzo bottone dovrà rendere i paragrafi in grassetto e farli tornare come prima.
-// // PS: Uniamo le conoscenze che abbiamo appreso finora, come sappiamo quando c'è qualcosa di casuale possiamo utilizzare il Math.random().
-
-
+let btnuno = document.querySelector("#uno")
+let btndue = document.querySelector("#due")
+let btntre = document.querySelector("#tre")
+let tuttibtn =document.querySelector(".css")
 let p = document.querySelectorAll("p")
-let riprova = document.querySelector("#riprova")
+console.log(p)
 
-let scompari = document.querySelector("#uno")
-let colore = document.querySelector("#due")
-let grassetto = document.querySelector("#tre")
 
-scompari.addEventListener("click", () => {
+// funzione per colore casuale che riutilizzerò più volte
+
+let r; let g; let b;
+function coloreCasuale()
+{r = Math.floor(Math.random() * 256);g = Math.floor(Math.random() * 256);b = Math.floor(Math.random() * 256);}
+coloreCasuale()
+
+// fine funzione
+
+
+btnuno.addEventListener("click", () => {
     p.forEach(a => {
-      a.classList.toggle("d-none");
-    });
-  
-    scompari.classList.add("d-none");
-  
-    let xyz = document.createElement("button");
-    xyz.innerHTML = "Ricompari";
-    riprova.appendChild(xyz);
-        
-  });
-  
-
-
-
-// Scompare solo l' elemento con indice n
-// scompari.addEventListener("click", () => {
-//     p.forEach((a, b)=> {
-//         if (b!==n){a.classList.toggle("d-none");}
-//     });
-// });
-
-colore.addEventListener("click", () => {
-    p.forEach(a => {
-        let r = Math.floor(Math.random()*255);
-        let g = Math.floor(Math.random()*255);
-        let b = Math.floor(Math.random()*255);
-        a.style.color =`rgb(${r}, ${g}, ${b})`        
+        coloreCasuale();
+        a.style.color = `rgb(${r}, ${g}, ${b})`;
     });
 });
 
-grassetto.addEventListener("click", () =>
-    {
-        p.forEach(a=>
-            a.classList.toggle("grassetto"))
-    }
-);
+btndue.addEventListener("click", () => {
+    p.forEach(a => {
+        a.classList.toggle("d-none");
+    });
+});
 
-// // ESERCIZIO 2
-// // Replicare le card in dinamica con JavaScript, come visto a lezione.
-// // Create un array di oggetti a vostro piacimento e provare a divertirvi come abbiamo fatto a lezione, se avete tempo provate ad inserire qualche altra feature o funzione in JS.
+btntre.addEventListener("click", () => {
+    p.forEach((a, b) => {
+        if (b!=1)
+        {a.classList.toggle("bold");}
+        
+    });
+});
 
-
+// --------------------------------------------------------------
 let row = document.querySelector(".row")
-
-let array = [
+let persone = [
     { nome: 'Riccardo', age: 23, url: "https://picsum.photos/200/200" },
     { nome: 'Emanuele', age: 25, url: "https://picsum.photos/200/200" },
     { nome: 'Giovanni', age: 23, url: "https://picsum.photos/200/200" },
 ];
 
-let dario = 
-{
-    nome: "Dario", age: 36, url: "https://picsum.photos/200/200"
-}
-array.push(dario)
+let sabrina = {nome:"sabrina", age: 36}
 
-array.forEach((el) => {
-    let div = document.createElement('div');
-    div.classList.add('col-12', 'col-md-6', 'my-4');
-    
-    div.innerHTML = `
-    <div class="card card-custom mx-auto" style="width: 18rem;">
-    <img src="${el.url}" class="card-img-top" alt="...">
+
+let dario = {nome: "Dario", age: 36, url: "https://picsum.photos/200/200" }
+persone.push(dario)
+
+persone.forEach((a) =>
+{
+    let div = document.createElement("div")
+    div.classList.add("col-12","col-md-6","col-lg-3","my-5")
+    div.innerHTML=
+    `<div class="card shadow-lg p-3 mb-5 bg-white rounded mx-auto" >
+    <img src="${a.url}" class="" alt="...">
     <div class="card-body text-center">
-    <h5 class="card-title">${el.nome}</h5>
-    <p class="card-text">${el.age}</p>
-    <div class="text-start">
+    <h5 class="card-title">${a.nome}</h5>
+    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
     <a href="#" class="btn btn-primary">Go somewhere</a>
     </div>
-    
     </div>
-    </div>`;
-    
-    
-    row.appendChild(div);
-});
+    `
+    row.appendChild(div)
+})
+
 
 
 

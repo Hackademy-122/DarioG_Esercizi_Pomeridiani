@@ -1,9 +1,9 @@
-.grassetto
+.css:hover
+{
+background-color: yellow;
+text-transform: uppercase;
+}
+.bold
 {
 font-weight: 900;
-}
-
-.prova
-{
-display: ;
 }
