@@ -8,6 +8,7 @@
 
 
 let p = document.querySelectorAll("p")
+let riprova = document.querySelector("#riprova")
 
 let scompari = document.querySelector("#uno")
 let colore = document.querySelector("#due")
@@ -15,9 +16,18 @@ let grassetto = document.querySelector("#tre")
 
 scompari.addEventListener("click", () => {
     p.forEach(a => {
-        a.classList.toggle("d-none");
+      a.classList.toggle("d-none");
     });
-});
+  
+    scompari.classList.add("d-none");
+  
+    let xyz = document.createElement("button");
+    xyz.innerHTML = "Ricompari";
+    riprova.appendChild(xyz);
+        
+  });
+  
+
 
 
 // Scompare solo l' elemento con indice n
@@ -69,18 +79,20 @@ array.forEach((el) => {
     div.innerHTML = `
     <div class="card card-custom mx-auto" style="width: 18rem;">
     <img src="${el.url}" class="card-img-top" alt="...">
-    <div class="card-body">
+    <div class="card-body text-center">
     <h5 class="card-title">${el.nome}</h5>
     <p class="card-text">${el.age}</p>
+    <div class="text-start">
     <a href="#" class="btn btn-primary">Go somewhere</a>
+    </div>
+    
     </div>
     </div>`;
     
-    // Aggiungi il nuovo elemento div al corpo del documento
+    
     row.appendChild(div);
 });
 
-// O se hai un elemento specifico a cui vuoi aggiungere i div, sostituisci document.body con l'elemento desiderato
 
 
 
