@@ -31,6 +31,6 @@ class Type extends Garage {
     
 }
 
-$garage = new Type("Ferrari", "550 Maranello", 2, 100000, "Sportiva");
+$garage = new Type("Ferrari", "550 Maranello", 2, 10000, "");
 $garage->showGarage();
 ?>
