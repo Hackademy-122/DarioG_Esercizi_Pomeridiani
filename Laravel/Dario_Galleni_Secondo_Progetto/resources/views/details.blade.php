@@ -61,7 +61,7 @@
 <div class="container mt-3">
     <div class="row justify-content-center">
         <div class="col-12 col-md-4">
-            <h1 class="text-center">Dettaglio studente {{$element['name']}}</h1>
+            <h1 class="text-center">Dettaglio studente {{$segnaposto['name']}}</h1>
         </div>
     </div>
 </div>
@@ -70,13 +70,13 @@
     <div class="row justify-content-center">
         <div class="col-12 col-md-6 d-flex justify-content-center mb-5">
             <div class="card p-5 shadow" style="width: 18rem;">
-                <img src="{{$element['img']}}" class="card-img-top" alt="{{$element['name']}}">
-                <div class="card-body">
-                <h5 class="card-title">{{$element['name']}}</h5>
-                <p>{{$element['surname']}}</p>
-                <p>{{$element['age']}}</p>
+                <img src="{{$segnaposto['img']}}" class="card-img-top" alt="{{$segnaposto['name']}}">
+                <div class="card-body text-center">
+                <h5 class="card-title">{{$segnaposto['name']}}</h5>
+                <p>{{$segnaposto['surname']}}</p>
+                <p>{{$segnaposto['age']}}</p>
                 
-                <a href="{{route('details', ['id'=> $element['id']])}}" class="btn btn-primary">Dettaglio</a>
+                <a href="{{route('details', ['id'=> $segnaposto['id']])}}" class="btn btn-primary">Dettaglio</a>
 
             </div>
         </div>

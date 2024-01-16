@@ -24,9 +24,9 @@ class PublicController extends Controller
                     ['id'=>'5','name'=>'Davide','surname'=>'Golia','age'=>'25', 'img'=>'/img/donato_bitetto.png']
                 ];
         
-        $owner = "Dario";
-        return view('chisiamo', ['singoloUtente'=>$utenti], ["segnaposto"=>$owner]);
-
+        
+        return view('chisiamo', ['singoloUtente'=>$utenti]);
+        //al richiamo della pagina chisiamo, scatterà la funzione omonima, che oltre a ritornare la pagina stessa, prenderà ogni "singoloUtente" (che è un parametro), di $utenti
     }
     
     public function dettagli($identificatore)
@@ -37,14 +37,21 @@ class PublicController extends Controller
                     ['id'=>'4','name'=>'Giovanni','surname'=>'Rana','age'=>'47', 'img'=>'/img/Davide-Cariola.png'],
                     ['id'=>'5','name'=>'Davide','surname'=>'Golia','age'=>'25', 'img'=>'/img/donato_bitetto.png']];
 
-
         foreach($utenti as $elementoArray)
             {
                 if($identificatore == $elementoArray['id'])
                     {
-                        return view('details', ['element' => $elementoArray]);
+                        return view('details', ['segnaposto' => $elementoArray]);
                     }
+                
             }
+    }
+
+    public function servizi()
+    {   
+        
+        return view("servizi");
+        
     }
 
 

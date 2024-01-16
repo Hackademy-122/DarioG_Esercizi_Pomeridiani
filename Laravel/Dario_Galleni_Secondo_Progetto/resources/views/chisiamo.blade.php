@@ -5,8 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     {{-- bootstrap cdn --}}
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-    {{-- homepage css --}}
-    <link rel="stylesheet" href="/css/homepage.css">
+    {{-- css --}}
+    <link rel="stylesheet" href="/css/style.css">
+
     
     <title>Home Page</title>
 </head>
@@ -14,7 +15,7 @@
 <body>
 
 {{-- navbar --}}
-<nav class="navbar navbar-expand-lg bg-success">
+<nav class="navbar navbar-expand-lg fixed-top">
     <div class="container-fluid">
         <img src="/img/laravel_logo.jpg" alt="laravel_logo" height="90px" width="90px">
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -38,7 +39,7 @@
 <div class="container mt-3">
     <div class="row justify-content-center">
         <div class="col-12 col-md-4">
-            <h1 class="text-center">Il Nostro Team  <br> by {{$segnaposto}}</h1>
+            <h1 class="text-center">Il Nostro Team</h1>
         </div>
     </div>
 </div>
@@ -49,7 +50,7 @@
             <a href="{{route('chisiamo')}}"><button class="btn btn-primary" type="button">Chi Siamo</button></a>
         </div>
         <div class="col-10 col-md-4 d-flex justify-content-center">
-            <a href=""><button class="btn btn-primary" type="button">Servizi</button></a>
+            <a href="{{route('services')}}"><button class="btn btn-primary" type="button">Servizi</button></a>
         </div>
         <div class="col-10 col-md-4 d-flex justify-content-center">
             <a href="{{route("homePage")}}"><button class="btn btn-primary" type="button">Torna alla home</button></a>
@@ -69,7 +70,7 @@
                     <p>{{$utente['surname']}}</p>
                     <p>{{$utente['age']}}</p>
                     
-                    <a href="{{ route('details', ['id' => $utente['id']]) }}" class="btn btn-primary">Dettaglio</a>
+                    <a href="{{ route('details', ['id' => $utente['id']]) }}" class="btn btn-success">Dettaglio</a>
 
                     </div>
                 </div>
@@ -79,6 +80,6 @@
 </div>
 
 
-
+<script src="\js\script.js"></script>
 </body>
 </html>

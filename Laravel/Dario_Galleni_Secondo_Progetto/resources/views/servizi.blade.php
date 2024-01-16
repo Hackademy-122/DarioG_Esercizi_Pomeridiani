@@ -37,22 +37,42 @@
 <div class="container">
     <div class="row">
         <div class="col-12 text-center">
-            <h1>Homepage Progetto Due <br> by {{$segnaposto}}</h1>
-            
+            <h1>Pagina Servizi</h1>
         </div>
     </div>    
 </div>        
 
 <div class="container">
     <div class="row">
-        <div class="col-12 col-md-6 my-5">
-            <h2 class="text-center">Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere obcaecati minima explicabo praesentium maxime, quia labore voluptas consequuntur sunt rem illo perspiciatis eos porro vero cum quis! Soluta, aliquam facere!</h2>
+        <div class="col-12 col-md-3 d-flex flex-column align-items-center mb-5">
+            <div class="text-center d-flex align-items-center">
+                <img class="img-fluid" src="img\upload\s_servizio2-1738.png" alt="" height="90px" width="90px">
+            </div>
+            <span class="my-3">Servizio 1</span>
         </div>
-        <div class="col-12 col-md-6 my-5 d-flex justify-content-center">
-            <img class="img-fluid" src="https://picsum.photos/seed/picsum/400/300" alt="">
+        <div class="col-12 col-md-3 d-flex flex-column align-items-center mb-5">
+            <div class="text-center">
+                <img class="img-fluid" src="img\upload\b_elevator-1921.png" alt="" height="90px" width="90px">
+            </div>
+            <span class="my-3">Servizio 2</span>
         </div>
-    </div>        
+        <div class="col-12 col-md-3 d-flex flex-column align-items-center mb-5">
+            <div class="text-center">
+                <img class="img-fluid" src="/img/upload/b_petfriendly-6852.png" alt="" height="90px" width="90px">
+            </div>
+            <span class="my-3">Servizio 2</span>
+        </div>
+        <div class="col-12 col-md-3 d-flex flex-column align-items-center mb-5">
+            <div class="text-center">
+                <img class="img-fluid" src="/img/upload/bici-3806.png" alt="" height="90px" width="90px">
+            </div>
+            <span class="my-3">Servizio 2</span>
+        </div>
+    </div>
 </div>
+
+
+
 
 <div class="container mt-5">
     <div class="row justify-content-center">
@@ -61,6 +81,9 @@
         </div>
         <div class="col-10 col-md-4 d-flex justify-content-center">
             <a href="{{route('services')}}"><button class="btn btn-primary" type="button">Servizi</button></a>
+        </div>
+        <div class="col-10 col-md-4 d-flex justify-content-center">
+            <a href="{{route('homePage')}}"><button class="btn btn-primary" type="button">Torna alla home</button></a>
         </div>
     </div>
 </div>
@@ -112,6 +135,8 @@
 
     {{-- bootstrap js --}}
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    {{-- my js --}}
 
+<script src="/js/homepage.js"></script>
 </body>
 </html>
