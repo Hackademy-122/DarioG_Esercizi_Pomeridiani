@@ -18,8 +18,8 @@
 
 
 <div class="text">
-        <h1>Home Page</h1>
-        <a href="/paginauno">Link</a>
+        <h1>Pagina Uno</h1>
+        <a href="{{`homePage`}}">Link</a>
         <p>Lorem ipsum dolor sit amet consecooooooooooootetur <span>{{$name}}</span> elit. Laudantium placeat expedita quasi labore perspiciatis velit obcaecati. In eos repellat voluptate, omnis exercitationem eum. Rerum beatae maxime officia enim quis inventore!</p>
 </div>
 

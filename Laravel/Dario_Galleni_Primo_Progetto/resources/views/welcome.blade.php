@@ -18,7 +18,7 @@
 
 <div class="text">
         <h1>Home Page</h1>
-        <a href="/paginauno">Linkk</a>
+        <a href=>Linkk</a>
         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium placeat expedita quasi labore perspiciatis velit obcaecati. In eos repellat voluptate, omnis exercitationem eum. Rerum beatae maxime officia enim quis inventore!</p>
 </div>
 
