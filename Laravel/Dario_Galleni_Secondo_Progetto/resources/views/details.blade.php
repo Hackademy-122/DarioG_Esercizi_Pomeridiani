@@ -6,7 +6,7 @@
     {{-- bootstrap cdn --}}
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     {{-- homepage css --}}
-    <link rel="stylesheet" href="/css/homepage.css">
+    <link rel="stylesheet" href="/css/style.css">
     
     <title>Home Page</title>
 </head>
@@ -61,7 +61,7 @@
 <div class="container mt-3">
     <div class="row justify-content-center">
         <div class="col-12 col-md-4">
-            <h1 class="text-center">Dettaglio studente {{$segnaposto['name']}}</h1>
+            <h1 class="text-center">Dettaglio studente {{$dettaglioRichiesto['name']}}</h1>
         </div>
     </div>
 </div>
@@ -70,13 +70,13 @@
     <div class="row justify-content-center">
         <div class="col-12 col-md-6 d-flex justify-content-center mb-5">
             <div class="card p-5 shadow" style="width: 18rem;">
-                <img src="{{$segnaposto['img']}}" class="card-img-top" alt="{{$segnaposto['name']}}">
+                <img src="{{$dettaglioRichiesto['img']}}" class="card-img-top" alt="{{$dettaglioRichiesto['name']}}">
                 <div class="card-body text-center">
-                <h5 class="card-title">{{$segnaposto['name']}}</h5>
-                <p>{{$segnaposto['surname']}}</p>
-                <p>{{$segnaposto['age']}}</p>
+                <h5 class="card-title">{{$dettaglioRichiesto['name']}}</h5>
+                <p>{{$dettaglioRichiesto['surname']}}</p>
+                <p>{{$dettaglioRichiesto['age']}}</p>
                 
-                <a href="{{route('details', ['id'=> $segnaposto['id']])}}" class="btn btn-primary">Dettaglio</a>
+                <a href="{{route('details', ['identificativo'=> $dettaglioRichiesto['id']])}}" class="btn btn-primary">Dettaglio</a>
 
             </div>
         </div>

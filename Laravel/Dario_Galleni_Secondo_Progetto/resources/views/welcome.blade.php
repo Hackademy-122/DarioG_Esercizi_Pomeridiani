@@ -6,7 +6,7 @@
     {{-- bootstrap cdn --}}
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     {{-- homepage css --}}
-    <link rel="stylesheet" href="/css/homepage.css">
+    <link rel="stylesheet" href="/css/style.css">
     
     <title>Home Page</title>
 </head>
@@ -37,7 +37,7 @@
 <div class="container">
     <div class="row">
         <div class="col-12 text-center">
-            <h1>Homepage Progetto Due <br> by {{$segnaposto}}</h1>
+            <h1 id="title">Homepage Progetto Due <br> by {{$segnaposto}}</h1>
             
         </div>
     </div>    
@@ -45,11 +45,11 @@
 
 <div class="container">
     <div class="row">
-        <div class="col-12 col-md-6 my-5">
+        <div class="col-12 col-md-6 my-5 d-flex align-items-center">
             <h2 class="text-center">Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere obcaecati minima explicabo praesentium maxime, quia labore voluptas consequuntur sunt rem illo perspiciatis eos porro vero cum quis! Soluta, aliquam facere!</h2>
         </div>
         <div class="col-12 col-md-6 my-5 d-flex justify-content-center">
-            <img class="img-fluid" src="https://picsum.photos/seed/picsum/400/300" alt="">
+            <img class="rounded" src="https://picsum.photos/seed/picsum/400/300" alt="">
         </div>
     </div>        
 </div>
@@ -61,6 +61,9 @@
         </div>
         <div class="col-10 col-md-4 d-flex justify-content-center">
             <a href="{{route('services')}}"><button class="btn btn-primary" type="button">Servizi</button></a>
+        </div>
+        <div class="col-10 col-md-4 d-flex justify-content-center">
+            <button class="btn btn-primary" id="click" type="button">Cick</button>
         </div>
     </div>
 </div>
@@ -112,6 +115,8 @@
 
     {{-- bootstrap js --}}
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+
+    <script src="\js\script.js"></script>
 
 </body>
 </html>

@@ -9,13 +9,14 @@
     <link rel="stylesheet" href="/css/style.css">
 
     
-    <title>Home Page</title>
+    <title>Chi Siamo</title>
 </head>
 
 <body>
 
 {{-- navbar --}}
 <nav class="navbar navbar-expand-lg fixed-top">
+
     <div class="container-fluid">
         <img src="/img/laravel_logo.jpg" alt="laravel_logo" height="90px" width="90px">
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -38,7 +39,7 @@
 
 <div class="container mt-3">
     <div class="row justify-content-center">
-        <div class="col-12 col-md-4">
+        <div id="chisiamo_title" class="col-12 col-md-4">
             <h1 class="text-center">Il Nostro Team</h1>
         </div>
     </div>
@@ -61,8 +62,7 @@
 
 <div class="container mt-5">
     <div class="row justify-content-center">
-        @foreach ($singoloUtente as $utente)
-        {{--  singolo utente= paramentro inserito in public controller, utente = paramentro del foreach --}}
+        @foreach ($arrayUtenti as $utente)
             <div class="col-12 col-md-6 d-flex justify-content-center mb-5">
                 <div class="card p-5 shadow" style="width: 18rem;">
                     <div class="card-body text-center">
@@ -70,9 +70,8 @@
                     <p>{{$utente['surname']}}</p>
                     <p>{{$utente['age']}}</p>
                     
-                    <a href="{{ route('details', ['id' => $utente['id']]) }}" class="btn btn-success">Dettaglio</a>
-
-                    </div>
+                    <a href="{{ route('details', ['identificativo' => $utente['id']]) }}" class="btn btn-success">Dettaglio</a>
+                </div>
                 </div>
             </div>
         @endforeach
