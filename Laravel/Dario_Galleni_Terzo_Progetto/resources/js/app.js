@@ -1,2 +1,3 @@
-import './bootstrap';
-import "./homepage"
+import 'bootstrap'
+import './script.js'
+
