@@ -3,8 +3,8 @@
 
 <div style="margin-top: 200px" class="container">
     <div class="row justify-content-center">
-        <div class="col-7" >
-            <h1 class="display-3">Il form funziona ma ho raggiunto il limite massimo di tentativi,  <a href="{{ route('success') }}">qui</a> la pagina di risposta al click tasto invia</h1>
+        <div class="col-7 d-flex justify-content-center" >
+            <h1 class="display-3">Contattaci</h1>
         </div>
         <div class="col-7">
             {{-- method post invia i dati al backend, action cosa succede al click su submit --}}

@@ -11,8 +11,8 @@ class PublicController extends Controller
 {
     public function home()
     {   
-        $success = 'Richiesta inviata. Grazie.';
-        return view("welcome", ['success'=>$success]);
+        
+        return view("welcome");
     }
 
 public function prodotti()
@@ -74,7 +74,7 @@ public function contattaci()
         Mail::to($email)->send(new ContactMail($email, $nome, $messaggio));
 
 
-        return view('success');
+        return view('success', ['nome'=>$nome]);
 
         }
 
