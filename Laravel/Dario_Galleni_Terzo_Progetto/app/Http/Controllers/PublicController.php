@@ -2,24 +2,21 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\ContactMail;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
+use League\CommonMark\Node\Block\Document;
 
 class PublicController extends Controller
 {
     public function home()
     {   
-        return view("welcome");
+        $success = 'Richiesta inviata. Grazie.';
+        return view("welcome", ['success'=>$success]);
     }
 
-public function layout()
-{   
-    
-    return view("layout");
-}
-    
-
-    public function prodotti()
-{
+public function prodotti()
+    {   
     $arrayProdotti = [
         ['id' => '1', 'type' => 'All Mountain', 'where' => 'Pista, brevi uscite in fresca e qualche giro in park', 'consigli' => 'Misura intermedia', 'img' => '', 'price' => 399.99],
         ['id' => '2', 'type' => 'Freestyle', 'where' => 'Pista, brevi uscite in fresca e qualche giro in park', 'consigli' => 'Misura intermedia', 'img' => '', 'price' => 349.99],
@@ -35,11 +32,13 @@ public function layout()
     
 
         $trademarks = "Burton";
+        
+
     return view("prodotti", ["prodotti" => $arrayProdotti, "tradeMarks" => $trademarks]);
-}
+    }
 
 
-public function dettagli($a)
+public function dettagli($ab)
 {
     $arrayProdotti = [
         ['id' => '1', 'type' => 'All Mountain', 'where' => 'Pista, brevi uscite in fresca e qualche giro in park', 'consigli' => 'Misura intermedia', 'img' => 'https://m.media-amazon.com/images/I/71NEBGxg-qL._AC_SX679_.jpg', 'price' => 399.99],
@@ -55,10 +54,33 @@ public function dettagli($a)
     
 
         foreach ($arrayProdotti as $elementoArray) {
-            if  ($a == $elementoArray['id']) {
+            if  ($ab == $elementoArray['id']) {
                 return view('dettagli', ['dettaglioRichiesto' => $elementoArray]);
             }
 }
-
 }
+
+public function contattaci()
+    {
+        return view('contactUs');
+    }
+
+    public function contattaciSubmit(Request $pippo) 
+    {   
+        $email = $pippo->input('email');
+        $nome = $pippo->input('nome');
+        $messaggio = $pippo->input('messaggio');
+
+        Mail::to($email)->send(new ContactMail($email, $nome, $messaggio));
+
+
+        return view('success');
+
+        }
+
+        public function success()
+    {
+        return view('success');
+    }
+
 }

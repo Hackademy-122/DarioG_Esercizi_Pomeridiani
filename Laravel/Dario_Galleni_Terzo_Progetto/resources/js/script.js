@@ -1,3 +1,5 @@
+// accordion pagina prodotti
+
 document.addEventListener('DOMContentLoaded', function () {
     document.querySelectorAll('input[name="flexRadioDefault"]').forEach(function (radio) {
         radio.addEventListener('change', function () {
@@ -15,3 +17,6 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 });
+
+// fine accordion pagina prodotti
+
