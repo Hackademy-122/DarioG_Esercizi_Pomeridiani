@@ -70,5 +70,27 @@ class PublicController extends Controller
 
         return view('messaggioInviato', ['nome'=>$name]);
     }
+
+    public function inserisci()
+    {   
+
+        return view ('inserisci');
+    }
+
+    public function annuncioinserito(Request $annuncio)
+    {   
+        $article = Article::create([
+            'brand' => $annuncio->brand,
+            'price' => $annuncio->price,
+            'where' => $annuncio->where,
+
+        ]);
+
+
+            
+        return view('annuncioInserito');
+        }
+
+
     
 }

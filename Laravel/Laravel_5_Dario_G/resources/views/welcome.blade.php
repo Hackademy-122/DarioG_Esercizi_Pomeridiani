@@ -7,7 +7,7 @@
     </header>
 
     <div class="overlay">
-        <video class="object-fit-fill" src="video\header.mp4" autoplay muted loop></video>
+        {{-- <video class="object-fit-fill" src="video\header.mp4" autoplay muted loop></video> --}}
     </div>
 
     <div class="text">

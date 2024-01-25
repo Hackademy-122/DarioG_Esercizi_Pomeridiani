@@ -10,8 +10,9 @@ class Article extends Model
 {
     use HasFactory;
     protected $fillable = [
+        'brand',
         'where',
-        'suggestion',
+        'price',
     ]; //? NB. Questi devono rappresentare i CAMPI nel nostro database
 }
 
