@@ -14,6 +14,9 @@
                 <li class="nav-item">
                     <a class="nav-link" href="{{route('inserisci')}}">Inserisci annuncio</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{route('inseriti')}}">Annunci Inseriti</a>
+                </li>
             </ul>
         </div>
     </div>

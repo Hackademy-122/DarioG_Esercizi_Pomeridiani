@@ -6,6 +6,7 @@ use App\Models\Article;
 use App\Mail\ContactMail;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Storage;
 
 class PublicController extends Controller
 {
@@ -39,7 +40,7 @@ class PublicController extends Controller
             $arrayIdCompresi2[] = $item;
         }
     }
-    //!richiamo tutti gli articoli inseriti nel database, e gli chiocco nella pagina store, insieme a quelli già esistenti nell' array!
+    //!richiamo tutti gli articoli inseriti nel database, e li schiocco nella pagina store, insieme a quelli già esistenti nell' array!
     $articles = Article::all();
 
     return view("store", [
@@ -99,7 +100,6 @@ class PublicController extends Controller
     //prendo i dati necessari dall' input...
     public function annuncioinserito(Request $annuncio)
     {   
-
         //... e creo l' articolo nel database, con le relative voci. 
         //!Le voci devono corrispondere a quelle che sono nel modello.
 
@@ -107,21 +107,38 @@ class PublicController extends Controller
             'brand' => $annuncio->brand,
             'price' => $annuncio->price,
             'where' => $annuncio->where,
+            'img'=>$annuncio->file('img')->store('public/img'),
             'id' => $annuncio->id,
             
         ]);
         
         //creo una variabile pippo,pluto e minnie che conterrà come valore i dati inseriti nell' input dall' utente, se voglio creare una pagina di risposta ( vedi annuncioInserito.blade )
         
+
         $pippo = $annuncio->brand;
         $pluto = $annuncio->price;
         $minnie = $annuncio->where;
+        
+        
 
+        
         return view('annuncioInserito', [
             'brand' => $pippo,
             'price' => $pluto,
-            'where' => $minnie
+            'where' => $minnie,
+            
+            
+            
+            
         ]);
+        
+    }
+
+    public function inseriti()
+    {   
+    
+    $tuttigliarticoli =  Article::all();
+        return view('annunciInseriti', ['articoli'=>$tuttigliarticoli]);
     }
     
 }

@@ -11,7 +11,7 @@
     <div class="row d-flex justify-content-center">
         <div class="col-10 my-5">
                 {{-- il form scatenerà una rotta di tipo post, cioè reindirizzerà ad una pagina non con get ma con post --}}
-            <form method="POST" action="{{route('annuncioinserito')}}">
+            <form method="POST" action="{{route('annuncioinserito')}}" enctype="multipart/form-data">
                 @csrf
                 <div class="mb-3">
                     <label for="exampleInputEmail1" class="form-label">Marca</label>
@@ -24,6 +24,10 @@
                 <div class="mb-3">
                     <label for="exampleInputPassword1" class="form-label">Dove Andare</label>
                     <input name="where" type="text" class="form-control" id="exampleInputPassword1">
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Immagine</label>
+                    <input name="img" type="file" class="form-control">
                 </div>
                 
                     <button type="submit" class="btn btn-primary">Submit</button>

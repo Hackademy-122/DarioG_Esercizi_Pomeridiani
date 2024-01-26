@@ -14,6 +14,8 @@ Route::post('/messaggio_inviato', [PublicController::class, 'messaggioinviato'])
 
 Route::get('/inserisci_annuncio', [PublicController::class, 'inserisci'])->name('inserisci');
 Route::post('/annuncioinserito', [PublicController::class, 'annuncioinserito'])->name('annuncioinserito');
+Route::get('/annunci_inseriti', [PublicController::class, 'inseriti'])->name('inseriti');
+
 
 
 

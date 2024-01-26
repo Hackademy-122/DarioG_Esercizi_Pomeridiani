@@ -13,7 +13,7 @@ return new class extends Migration
             $table->id();
             $table->text('brand');
             $table->text('where');
-            $table->text('price');
+            $table->float('price', 6, 2);
             $table->timestamps();
         });
     }
