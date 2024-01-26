@@ -28,9 +28,27 @@ class PublicController extends Controller
             ['id' => '9', 'type' => 'Carving', 'where' => 'Curve veloci su piste ben battute', 'consigli' => 'Misura intermedia', 'img' => '', 'price' => 419.99],
             ['id' => '10', 'type' => 'Backcountry', 'where' => 'Fuoripista e avventure nella natura', 'consigli' => 'Misura lunga e adatta ad attacchi da scialpinismo', 'img' => '', 'price' => 499.99],
         ];
-        
-        return view("store", ['prodotti'=>$arrayProdotti]);
+
+        $arrayIdCompresi1 = [];
+    $arrayIdCompresi2 = [];
+
+    foreach ($arrayProdotti as $item) {
+        if ($item['id'] % 2 == false) {
+            $arrayIdCompresi1[] = $item;
+        } else {
+            $arrayIdCompresi2[] = $item;
+        }
     }
+    //!richiamo tutti gli articoli inseriti nel database, e gli chiocco nella pagina store, insieme a quelli già esistenti nell' array!
+    $articles = Article::all();
+
+    return view("store", [
+        'prodotti' => $arrayIdCompresi1,
+        'prodotti2' => $arrayIdCompresi2,
+        'articles' => $articles,
+        
+    ]);
+}
 
     public function dettagli($a)
     {
@@ -47,10 +65,12 @@ class PublicController extends Controller
             ['id' => '10', 'type' => 'Backcountry', 'where' => 'Fuoripista e avventure nella natura', 'consigli' => 'Misura lunga e adatta ad attacchi da scialpinismo', 'img' => 'https://www.burton.com/static/product/W24/10688110960_1.png?impolicy=bglt&imwidth=580', 'price' => 499.99],
         ];  
 
-        foreach ($arrayProdotti as $elementoArray) {
-            if ($a == $elementoArray['id']) {
+        foreach ($arrayProdotti as $elementoArray)
+            {
+                if ($a == $elementoArray['id'])
+                    {
                 return view('dettagli', ['dettaglioRichiesto' => $elementoArray]);
-            }
+                    }
         }
     }
 
@@ -66,31 +86,43 @@ class PublicController extends Controller
         $message = $contattaci->input ('message');
 
         Mail::to($email)->send(new ContactMail($email, $name));
-        
 
         return view('messaggioInviato', ['nome'=>$name]);
     }
 
     public function inserisci()
     {   
-
-        return view ('inserisci');
+        return view('inserisci');
     }
-
+    
+    //rotta col metodo post, con //!Request 
+    //prendo i dati necessari dall' input...
     public function annuncioinserito(Request $annuncio)
     {   
+
+        //... e creo l' articolo nel database, con le relative voci. 
+        //!Le voci devono corrispondere a quelle che sono nel modello.
+
         $article = Article::create([
             'brand' => $annuncio->brand,
             'price' => $annuncio->price,
             'where' => $annuncio->where,
-
-        ]);
-
-
+            'id' => $annuncio->id,
             
-        return view('annuncioInserito');
-        }
+        ]);
+        
+        //creo una variabile pippo,pluto e minnie che conterrà come valore i dati inseriti nell' input dall' utente, se voglio creare una pagina di risposta ( vedi annuncioInserito.blade )
+        
+        $pippo = $annuncio->brand;
+        $pluto = $annuncio->price;
+        $minnie = $annuncio->where;
 
-
+        return view('annuncioInserito', [
+            'brand' => $pippo,
+            'price' => $pluto,
+            'where' => $minnie
+        ]);
+    }
     
 }
+

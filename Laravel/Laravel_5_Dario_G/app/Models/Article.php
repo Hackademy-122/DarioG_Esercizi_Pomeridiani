@@ -13,6 +13,7 @@ class Article extends Model
         'brand',
         'where',
         'price',
+        'id',
     ]; //? NB. Questi devono rappresentare i CAMPI nel nostro database
 }
 

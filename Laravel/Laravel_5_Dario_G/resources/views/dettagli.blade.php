@@ -1,7 +1,7 @@
 <x-layout>
     
-    <div id="" class="container-fluid">
-        <div class="row my-5 d-flex justify-content-center">
+    <div id="" class="container">
+        <div class="row my-5 d-flex justify-content-center align-items-center">
 
     {{-- descrizione --}}
             <div class="col-12 col-md-5">
@@ -14,11 +14,11 @@
             </div>
     {{-- immagine --}}
             <div class="col-12 col-md-2 d-flex justify-content-center">
-                <img id="dettagli_img" src="{{$dettaglioRichiesto['img']}}" class="img-thumbnail" height="350px" alt="">
+                <img id="dettagli_img" src="{{$dettaglioRichiesto['img']}}" class="" height="500px" alt="">
             </div>
     {{-- video --}}
             <div class="col-12 col-md-5 d-flex justify-content-center">
-                <iframe class="h-100" src="https://www.youtube.com/embed/8-Gu_BLh2pQ?autoplay=1&mute=1" title="Perfect Powder Day #snowboarding #shorts #winter #newvideo #snow" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                <iframe class="" height="500px" src="https://www.youtube.com/embed/8-Gu_BLh2pQ?autoplay=1&mute=1" title="Perfect Powder Day #snowboarding #shorts #winter #newvideo #snow" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; loop" allowfullscreen></iframe>
             </div>
     
         </div>
