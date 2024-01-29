@@ -1,4 +1,14 @@
 <x-layout>
+
+    
+    <div class="container">
+        <div class="row">
+            <div class="col-12 text-center">
+                <h1>Registrati</h1>
+            </div>
+        </div>
+    </div>
+
     <form method="post" action="{{route('register')}}">
         @csrf
         <div class="mb-3">

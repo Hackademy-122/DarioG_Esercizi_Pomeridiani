@@ -6,7 +6,9 @@ use App\Models\Article;
 use App\Mail\ContactMail;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
+use App\Http\Requests\ArticleRequest;
 use Illuminate\Support\Facades\Storage;
+
 
 class PublicController extends Controller
 {
@@ -98,7 +100,7 @@ class PublicController extends Controller
     
     //rotta col metodo post, con //!Request 
     //prendo i dati necessari dall' input...
-    public function annuncioinserito(Request $annuncio)
+    public function annuncioinserito(ArticleRequest $annuncio)
     {   
         //... e creo l' articolo nel database, con le relative voci. 
         //!Le voci devono corrispondere a quelle che sono nel modello.
@@ -109,9 +111,10 @@ class PublicController extends Controller
             'where' => $annuncio->where,
             'img'=>$annuncio->file('img')->store('public/img'),
             'id' => $annuncio->id,
+
+            
             
         ]);
-        
         
         
         return view('annuncioInserito', [

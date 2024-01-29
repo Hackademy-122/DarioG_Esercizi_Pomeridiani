@@ -10,7 +10,16 @@
 <div class="container">
     <div class="row d-flex justify-content-center">
         <div class="col-10 my-5">
-                {{-- il form scatenerà una rotta di tipo post, cioè reindirizzerà ad una pagina non con get ma con post --}}
+            {{-- questo, messo qui, mette l' errore sopra tutti i campi --}}
+            {{-- @if ($errors->any())
+                    <div class="alert alert-danger">
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                @endif --}}
             <form method="POST" action="{{route('annuncioinserito')}}" enctype="multipart/form-data">
                 @csrf
                 <div class="mb-3">
