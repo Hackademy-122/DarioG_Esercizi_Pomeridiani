@@ -112,20 +112,13 @@ class PublicController extends Controller
             
         ]);
         
-        //creo una variabile pippo,pluto e minnie che conterrà come valore i dati inseriti nell' input dall' utente, se voglio creare una pagina di risposta ( vedi annuncioInserito.blade )
         
-
-        $pippo = $annuncio->brand;
-        $pluto = $annuncio->price;
-        $minnie = $annuncio->where;
-        
-        
-
         
         return view('annuncioInserito', [
-            'brand' => $pippo,
-            'price' => $pluto,
-            'where' => $minnie,
+            'brand' => $article['brand'],
+            'price' => $article['price'],
+            'where' => $article['where'],
+            
             
             
             
@@ -134,12 +127,7 @@ class PublicController extends Controller
         
     }
 
-    public function inseriti()
-    {   
     
-    $tuttigliarticoli =  Article::all();
-        return view('annunciInseriti', ['articoli'=>$tuttigliarticoli]);
-    }
     
 }
 
