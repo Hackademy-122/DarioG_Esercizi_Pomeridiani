@@ -21,6 +21,15 @@ Route::get('/category/create', [CategoryController::class, 'create'])->name('cat
 Route::post('/category/store', [CategoryController::class, 'store'])->name('category_store');
 Route::get('/category/index', [CategoryController::class, 'index'])->name('category_index');
 Route::get('/category/show/{category}', [CategoryController::class, 'show'])->name('category_show');
+Route::get('/category/edit/{category}', [CategoryController::class, 'edit'])->name('category_edit');
+Route::put('/category/update/{category}', [CategoryController::class, 'update'])->name('category_update');
+Route::put('/category/update/{category}', [CategoryController::class, 'update'])->name('category_update');
+Route::delete('/category/delete/{category}', [CategoryController::class, 'update'])->name('category_delete');
+
+
+
+
+
 
 
 

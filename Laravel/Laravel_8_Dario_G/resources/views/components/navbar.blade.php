@@ -15,11 +15,11 @@
                     <a class="nav-link" href="{{route('inserisci')}}">Inserisci annuncio</a>
                 </li>
                 <li class="nav-item">
+                    <a class="nav-link" href="{{route('category_create')}}">Aggiungi Categoria</a>
+                </li>
+                <li class="nav-item">
                     <a class="nav-link" href="{{route('category_index')}}">Tutte le categorie</a>
                 </li>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="{{route('category_create')}}">Aggiungi Categoria</a>
             </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
