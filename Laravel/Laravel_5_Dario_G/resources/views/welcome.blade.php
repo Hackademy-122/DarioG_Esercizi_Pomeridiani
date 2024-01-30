@@ -9,7 +9,16 @@
     <div class="overlay">
         {{-- <video class="object-fit-fill" src="video\header.mp4" autoplay muted loop></video> --}}
     </div>
-
+    @if (session('message'))
+    <div class="alert alert-success">
+        {{ session('message') }}
+    </div>
+@endif
+@if (session('error'))
+<div class="alert alert-danger">
+    {{ session('error') }}
+</div>
+@endif
     <div class="text">
         <div data-aos ="fade-right" data-aos-duration="3000">
             <h2>Never Stop</h2>

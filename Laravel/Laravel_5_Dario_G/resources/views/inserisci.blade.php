@@ -11,7 +11,7 @@
     <div class="row d-flex justify-content-center">
         <div class="col-10 my-5">
             {{-- questo, messo qui, mette l' errore sopra tutti i campi --}}
-            {{-- @if ($errors->any())
+            @if ($errors->any())
                     <div class="alert alert-danger">
                         <ul>
                             @foreach ($errors->all() as $error)
@@ -19,7 +19,7 @@
                             @endforeach
                         </ul>
                     </div>
-                @endif --}}
+                @endif
             <form method="POST" action="{{route('annuncioinserito')}}" enctype="multipart/form-data">
                 @csrf
                 <div class="mb-3">
