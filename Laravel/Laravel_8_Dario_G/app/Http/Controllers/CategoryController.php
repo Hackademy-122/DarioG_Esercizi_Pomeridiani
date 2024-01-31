@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Category;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class CategoryController extends Controller
 {
@@ -11,7 +12,7 @@ class CategoryController extends Controller
      * Display a listing of the resource.
      */
     public function index()
-    {
+    {   
         $categories = Category::all();
         return view('category.index', compact('categories'));
     }
@@ -42,7 +43,7 @@ class CategoryController extends Controller
      */
     public function show(Category $category)
     {   
-
+            
         return view('category.show', compact('category'));
         
     }
@@ -70,8 +71,11 @@ class CategoryController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Category $category)
+    public function delete(Category $category)
     {
         $category->delete();
+        return redirect()->route('category_index')->with('message', 'Categoria Eliminata');
+        
+
     }
 }

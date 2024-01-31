@@ -11,12 +11,14 @@
                 <li class="nav-item">
                     <a class="nav-link" href="{{route('contattaci')}}">Contattaci</a>
                 </li>
+                @auth
                 <li class="nav-item">
                     <a class="nav-link" href="{{route('inserisci')}}">Inserisci annuncio</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{{route('category_create')}}">Aggiungi Categoria</a>
                 </li>
+                @endauth
                 <li class="nav-item">
                     <a class="nav-link" href="{{route('category_index')}}">Tutte le categorie</a>
                 </li>

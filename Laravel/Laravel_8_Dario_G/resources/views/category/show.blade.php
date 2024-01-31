@@ -6,5 +6,5 @@
         </div>
     </div>
   </div>
-    <p>{{}}</p>
+    <p></p>
   </x-layout>

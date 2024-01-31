@@ -1,0 +1,1 @@
+<p>hai eliminato la categoria {{$category->name}}</p>
