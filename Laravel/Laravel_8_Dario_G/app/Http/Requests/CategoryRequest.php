@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class ArticleRequest extends FormRequest
+class CategoryRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -22,9 +22,8 @@ class ArticleRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name' => 'required|min:5',
-            'price' => 'required|numeric',
-            'img'=> 'required'
+            'category' => 'required|min:5',
+            
             
 
         ];
@@ -38,9 +37,8 @@ class ArticleRequest extends FormRequest
     public function messages(): array
     {
         return [
-            'name' => 'Il campo nome è obbligatorio almeno 5 caratteri',
-            'price' => 'Il campo prezzo è obbligatorio, inserire un numero.',
-            'img'=> 'inserire un immagine'
+            'category' => 'Il campo categoria è obbligatorio',
+            
             
         ];
     }

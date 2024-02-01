@@ -2,56 +2,28 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PublicController;
-use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\ArticleController;
 
 
-Route::get('/', [PublicController::class, 'home'])->name('homepage');
-Route::get('/store', [PublicController::class, 'store'])->name('store');
-Route::get('/dettaglio_tavola{id}', [PublicController::class, 'dettagli'])->name('dettagli');
-Route::get('/contattaci', [PublicController::class, 'contattaci'])->name('contattaci');
-Route::post('/messaggio_inviato', [PublicController::class, 'messaggioinviato'])->name('messaggioinviato');
-
-//rotte articoli
-
-Route::get('/inserisci_annuncio', [PublicController::class, 'inserisci'])->name('inserisci');
-Route::post('/annuncioinserito', [PublicController::class, 'annuncioinserito'])->name('annuncioinserito');
+//home
+Route::get('/', [PublicController::class, 'home'])->name('home');
+Route::get('/all_users', [PublicController::class, 'utenti'])->name('utenti');
 
 
-Route::get('/category/create', [CategoryController::class, 'create'])->name('category_create');
-Route::post('/category/store', [CategoryController::class, 'store'])->name('category_store');
-Route::get('/category/index', [CategoryController::class, 'index'])->name('category_index');
-Route::get('/category/show/{category}', [CategoryController::class, 'show'])->name('category_show');
-Route::get('/category/edit/{category}', [CategoryController::class, 'edit'])->name('category_edit');
-Route::put('/category/update/{category}', [CategoryController::class, 'update'])->name('category_update');
-Route::delete('/category/delete/{category}', [CategoryController::class, 'delete'])->name('category_delete');
+//category
+Route::get('/category', [PublicController::class, 'category'])->name('category');
+Route::post('/category_create', [PublicController::class, 'category_store'])->name('category_store');
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+//articoli
+Route::get('/create', [ArticleController::class, 'create'])->name('create');
+Route::post('/store', [ArticleController::class, 'store'])->name('store');
+Route::get('/index', [ArticleController::class, 'index'])->name('index');
+Route::get('/show/{article}', [ArticleController::class, 'show'])->name('show');
+Route::get('/edit/{article}', [ArticleController::class, 'edit'])->name('edit');
+Route::put('/update/{article}', [ArticleController::class, 'update'])->name('update');
+Route::delete('/delete/{article}', [ArticleController::class, 'destroy'])->name('delete');
 
 
 

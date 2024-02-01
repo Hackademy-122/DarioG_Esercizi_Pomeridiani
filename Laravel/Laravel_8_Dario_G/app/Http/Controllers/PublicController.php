@@ -2,135 +2,40 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Article;
-use App\Mail\ContactMail;
+use App\Models\Category;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Mail;
+use Illuminate\Foundation\Auth\User;
+use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\ArticleRequest;
-use Illuminate\Support\Facades\Storage;
-
+use App\Http\Requests\CategoryRequest;
+use Illuminate\Support\Facades\Artisan;
 
 class PublicController extends Controller
 {
     public function home()
-    {
-        return view("welcome");
+    {   $utenti = User::all();
+        return view ('welcome', compact('utenti') );
     }
 
-    public function store()
+    public function category()
     {
-        $arrayProdotti = [
-            ['id' => '1', 'type' => 'All Mountain', 'where' => 'Pista, brevi uscite in fresca e qualche giro in park', 'consigli' => 'Misura intermedia', 'img' => '', 'price' => 399.99],
-            ['id' => '2', 'type' => 'Freestyle', 'where' => 'Pista, brevi uscite in fresca e qualche giro in park', 'consigli' => 'Misura intermedia', 'img' => '', 'price' => 349.99],
-            ['id' => '3', 'type' => 'Jibbing', 'where' => 'Rail e street session in neve fresca', 'consigli' => 'Misura più corta della media', 'img' => '', 'price' => 299.99],
-            ['id' => '4', 'type' => 'Powder', 'where' => 'Neve profonda e fresca', 'consigli' => 'Misura più lunga', 'img' => '', 'price' => 449.99],
-            ['id' => '5', 'type' => 'Alpine', 'where' => 'Piste veloci e carving', 'consigli' => 'Misura lunga e rigida', 'img' => '', 'price' => 499.99],
-            ['id' => '6', 'type' => 'Splitboard', 'where' => 'Backcountry e fuoripista', 'consigli' => 'Divisibile per scialpinismo', 'img' => '', 'price' => 599.99],
-            ['id' => '7', 'type' => 'Big Mountain', 'where' => 'Terreni accidentati e fuoripista estremo', 'consigli' => 'Misura lunga e rigida', 'img' => '', 'price' => 549.99],
-            ['id' => '8', 'type' => 'Halfpipe', 'where' => 'Halfpipe e snowpark', 'consigli' => 'Misura intermedia', 'img' => '', 'price' => 379.99],
-            ['id' => '9', 'type' => 'Carving', 'where' => 'Curve veloci su piste ben battute', 'consigli' => 'Misura intermedia', 'img' => '', 'price' => 419.99],
-            ['id' => '10', 'type' => 'Backcountry', 'where' => 'Fuoripista e avventure nella natura', 'consigli' => 'Misura lunga e adatta ad attacchi da scialpinismo', 'img' => '', 'price' => 499.99],
-        ];
-
-        $arrayIdCompresi1 = [];
-    $arrayIdCompresi2 = [];
-
-    foreach ($arrayProdotti as $item) {
-        if ($item['id'] % 2 == false) {
-            $arrayIdCompresi1[] = $item;
-        } else {
-            $arrayIdCompresi2[] = $item;
-        }
+        return view ('category');
     }
-    //!richiamo tutti gli articoli inseriti nel database, e li schiocco nella pagina store, insieme a quelli già esistenti nell' array!
-    $articles = Article::all();
 
-    return view("store", [
-        'prodotti' => $arrayIdCompresi1,
-        'prodotti2' => $arrayIdCompresi2,
-        'articles' => $articles,
-        
-    ]);
+    public function category_store(Request $request, CategoryRequest $CategoryRequest)
+    {
+        $category = Category::create([
+            'category' => $request->category,
+        ]);
+    
+        return redirect()->route('home')->with('message', 'Categoria creata');
+    }
+    
+    public function utenti()
+{   
+    $utenti = User::all();
+    return view ('allUsers', compact('utenti'));
 }
 
-    public function dettagli($a)
-    {
-        $arrayProdotti = [
-            ['id' => '1', 'type' => 'All Mountain', 'where' => 'Pista, brevi uscite in fresca e qualche giro in park', 'consigli' => 'Misura intermedia', 'img' => 'https://www.burton.com/static/product/W24/10688110960_1.png?impolicy=bglt&imwidth=580', 'price' => 399.99],
-            ['id' => '2', 'type' => 'Freestyle', 'where' => 'Pista, brevi uscite in fresca e qualche giro in park', 'consigli' => 'Misura intermedia', 'img' => 'https://www.burton.com/static/product/W24/10688110960_1.png?impolicy=bglt&imwidth=580', 'price' => 349.99],
-            ['id' => '3', 'type' => 'Jibbing', 'where' => 'Rail e street session in neve fresca', 'consigli' => 'Misura più corta della media', 'img' => 'https://www.burton.com/static/product/W24/10688110960_1.png?impolicy=bglt&imwidth=580', 'price' => 299.99],
-            ['id' => '4', 'type' => 'Powder', 'where' => 'Neve profonda e fresca', 'consigli' => 'Misura più lunga', 'img' => 'https://www.burton.com/static/product/W24/10688110960_1.png?impolicy=bglt&imwidth=580', 'price' => 449.99],
-            ['id' => '5', 'type' => 'Alpine', 'where' => 'Piste veloci e carving', 'consigli' => 'Misura lunga e rigida', 'img' => 'https://www.burton.com/static/product/W24/10688110960_1.png?impolicy=bglt&imwidth=580', 'price' => 499.99],
-            ['id' => '6', 'type' => 'Splitboard', 'where' => 'Backcountry e fuoripista', 'consigli' => 'Divisibile per scialpinismo', 'img' => 'https://www.burton.com/static/product/W24/10688110960_1.png?impolicy=bglt&imwidth=580', 'price' => 599.99],
-            ['id' => '7', 'type' => 'Big Mountain', 'where' => 'Terreni accidentati e fuoripista estremo', 'consigli' => 'Misura lunga e rigida', 'img' => 'https://www.burton.com/static/product/W24/10688110960_1.png?impolicy=bglt&imwidth=580', 'price' => 549.99],
-            ['id' => '8', 'type' => 'Halfpipe', 'where' => 'Halfpipe e snowpark', 'consigli' => 'Misura intermedia', 'img' => 'https://www.burton.com/static/product/W24/10688110960_1.png?impolicy=bglt&imwidth=580', 'price' => 379.99],
-            ['id' => '9', 'type' => 'Carving', 'where' => 'Curve veloci su piste ben battute', 'consigli' => 'Misura intermedia', 'img' => 'https://www.burton.com/static/product/W24/10688110960_1.png?impolicy=bglt&imwidth=580', 'price' => 419.99],
-            ['id' => '10', 'type' => 'Backcountry', 'where' => 'Fuoripista e avventure nella natura', 'consigli' => 'Misura lunga e adatta ad attacchi da scialpinismo', 'img' => 'https://www.burton.com/static/product/W24/10688110960_1.png?impolicy=bglt&imwidth=580', 'price' => 499.99],
-        ];  
 
-        foreach ($arrayProdotti as $elementoArray)
-            {
-                if ($a == $elementoArray['id'])
-                    {
-                return view('dettagli', ['dettaglioRichiesto' => $elementoArray]);
-                    }
-        }
-    }
-
-    public function contattaci()
-    {
-        return view('contattaci');
-    }
-
-    public function messaggioinviato(Request $contattaci)
-    {   
-        $email = $contattaci->input ('email');
-        $name = $contattaci->input ('name');
-        $message = $contattaci->input ('message');
-
-        Mail::to($email)->send(new ContactMail($email, $name));
-
-        return view('messaggioInviato', ['nome'=>$name]);
-    }
-
-    public function inserisci()
-    {   
-        return view('inserisci');
-    }
-    
-    //rotta col metodo post, con //!Request 
-    //prendo i dati necessari dall' input...
-    public function annuncioinserito(ArticleRequest $annuncio)
-    {   
-        //... e creo l' articolo nel database, con le relative voci. 
-        //!Le voci devono corrispondere a quelle che sono nel modello.
-
-        $article = Article::create([
-            'brand' => $annuncio->brand,
-            'price' => $annuncio->price,
-            'where' => $annuncio->where,
-            'img'=>$annuncio->file('img')->store('public/img'),
-            'id' => $annuncio->id,
-
-            
-            
-        ]);
-        
-        
-        return view('annuncioInserito', [
-            'brand' => $article['brand'],
-            'price' => $article['price'],
-            'where' => $article['where'],
-            
-            
-            
-            
-            
-        ]);
-        
-    }
-
-    
-    
 }
-

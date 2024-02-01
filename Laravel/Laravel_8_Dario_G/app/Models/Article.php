@@ -2,19 +2,24 @@
 
 namespace App\Models;
 
-
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Article extends Model
 {
     use HasFactory;
+
     protected $fillable = [
-        'brand',
-        'where',
+        'name',
         'price',
         'img',
-        'id',
-    ]; //? NB. Questi devono rappresentare i CAMPI nel nostro database
-}
+        'user_id'
+    ];
 
+    public function user(): BelongsTo
+    {
+        return $this->belongsTo(User::class);
+    }
+
+}

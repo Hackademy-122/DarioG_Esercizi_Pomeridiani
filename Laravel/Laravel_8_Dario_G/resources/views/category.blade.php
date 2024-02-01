@@ -1,8 +1,9 @@
+
 <x-layout>
     <div class="container">
         <div class="row">
             <div class="col-12 mt-5">
-                <h1 class="text-center display-3">Crea categoria!</h1>
+                <h1 class="text-center display-3">Inserisci Categoria</h1>
             </div>
         </div>
     </div>
@@ -24,12 +25,13 @@
                     @csrf
                     
                     <div class="mb-3">
-                        <label for="inputName" class="form-label">Nome categoria</label>
-                        <input name="name" type="text" class="form-control" id="inputName" aria-describedby="nameHelp">
+                        <label for="inputName" class="form-label">Nome Categoria</label>
+                        <input name="category" type="text" class="form-control" id="inputName" aria-describedby="nameHelp">
                     </div>
 
+
                     
-                    <button type="submit" class="btn btn-primary">Crea categoria</button>
+                    <button type="submit" class="btn btn-primary">Crea</button>
                 </form>
                 
             </div>

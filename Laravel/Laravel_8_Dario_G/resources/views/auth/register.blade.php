@@ -1,15 +1,8 @@
 <x-layout>
-
-    
     <div class="container">
-        <div class="row">
-            <div class="col-12 text-center">
-                <h1>Registrati</h1>
-            </div>
-        </div>
-    </div>
-
-    <form method="post" action="{{route('register')}}">
+        <div class="row justify-content-center">
+            <div class="col-10 mt-5">
+                <form method="post" action="{{route('register')}}">
         @csrf
         <div class="mb-3">
             <label for="exampleInputEmail1" class="form-label">Nome</label>
@@ -29,4 +22,9 @@
         </div>
         <button type="submit" class="btn btn-primary">Submit</button>
     </form>
-</x-layout>
+            </div>
+        </div>
+    </div>
+    
+
+    </x-layout>
