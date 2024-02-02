@@ -28,7 +28,7 @@ class PublicController extends Controller
             'category' => $request->category,
         ]);
     
-        return redirect()->route('home')->with('message', 'Categoria creata');
+        return redirect()->route('category')->with('message', 'Categoria Creata');
     }
     
     public function utenti()

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Article;
+use App\Models\Category;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\ArticleRequest;
@@ -14,7 +15,8 @@ class ArticleController extends Controller
      */
     public function index()
     {
-        $articles = Article::all();
+
+        $category = Category::all();
         return view('article.index', compact('articles'));
 
     }
@@ -22,24 +24,33 @@ class ArticleController extends Controller
      * Show the form for creating a new resource.
      */
     public function create()
-    {
-        return view('article.create');
+    {   
+        $categories = Category::all();
+        return view('article.create', compact('categories'));
     }
 
     /**
      * Store a newly created resource in storage.
      */
     public function store(Request $request, ArticleRequest $ArticleRequest)
-    {   
-        $category = Article::create([
-            'name' => $request->name,
-            'price'=> $request->price,
-            'user_id'=>Auth::user()->id,
-            'img'=> $request->file('img')->store('public/img'),
-        ]);
-        return redirect()->route('home')->with('message', 'Annuncio creato');
+{   
+    // Creazione dell'articolo
+    $article = Article::create([
+        'name' => $request->name,
+        'price'=> $request->price,
+        'user_id'=> Auth::user()->id,
+        'img'=> $request->file('img')->store('public/img'),
+    ]);
 
+   //Dellarticolo che sto creando, recuperami tutte le categorie collegate (in questo caso é una collection vuota),agganciami la nuova categoria
+
+
+    foreach ($request->categories as $category) {
+        $article->categories()->attach($category);
     }
+    return redirect()->route('home')->with('message', 'Annuncio creato');
+}
+
 
     /**
      * Display the specified resource.
@@ -65,7 +76,7 @@ class ArticleController extends Controller
     $article->update([
         'name' => $request->name,
         'price' => $request->price,
-        'img' => $request->hasFile('img') ? $request->file('img')->store('public/img') : $article->img
+        // 'img' => $request->img ? $request->file('img')->store('public/img') : $article->img,
 
     ]);
 

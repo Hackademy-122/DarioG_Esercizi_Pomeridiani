@@ -12,7 +12,7 @@
 <body>
 
     <div class="container mb-y">
-        <div class="row">
+        <div class="row justify-content-center">
             @auth
             <div class="col-2 text-center">
                 <a href="{{route('create')}}">Inserisci articolo</a>
@@ -27,14 +27,14 @@
             <div class="col-2 text-center">
                 <a href="{{route('utenti')}}">Tutti gli utenti</a> <br>
             </div>     
-            <div class="col-2 text-center">
+            <div class="col-2 text-center d-flex align-items-center">
                 <ul>
         <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                     @if(Auth::user())
                     Benvenuto {{Auth::user()->name}}
                     @else 
-                    Azioni
+                    Login/Registrati
                     @endif
             </a>
                 <ul class="dropdown-menu">

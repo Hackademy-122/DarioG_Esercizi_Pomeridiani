@@ -24,6 +24,8 @@ class ArticleRequest extends FormRequest
         return [
             'name' => 'required|min:5',
             'price' => 'required|numeric',
+            'price' => 'required|max: 4',
+
             'img'=> 'required'
             
 
@@ -40,6 +42,7 @@ class ArticleRequest extends FormRequest
         return [
             'name' => 'Il campo nome è obbligatorio almeno 5 caratteri',
             'price' => 'Il campo prezzo è obbligatorio, inserire un numero.',
+            'price' => 'inserire un numero da 0 a 99',
             'img'=> 'inserire un immagine'
             
         ];

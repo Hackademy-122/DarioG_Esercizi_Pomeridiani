@@ -10,6 +10,7 @@
     <div class="container mt-5">
         <div class="row justify-content-center">
             <div class="col-6">
+                {{-- errore --}}
                 @if ($errors->any())
                     <div class="alert alert-danger">
                         <ul>
@@ -19,6 +20,16 @@
                         </ul>
                     </div>
                 @endif
+                {{-- categoria creata --}}
+                <div class="container">
+                    @if (session('message'))
+                    <div class="alert alert-success">
+                        {{ session('message') }}
+                    </div>
+                @endif
+                
+                
+                </div>
                 
                 <form action="{{route('category_store')}}" method="POST">
                     

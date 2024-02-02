@@ -31,7 +31,7 @@
                         
                     <div class="mb-3">
                         <label for="inputName" class="form-label">Prezzo</label>
-                        <input name="price" type="text" class="form-control" id="inputName" aria-describedby="nameHelp" value="{{$article->price}}">
+                        <input name="price" type="text" class="form-control" id="inputNumber" aria-describedby="nameHelp" value="{{$article->price}}">
                     </div>
 
                     <div class="mb-3">

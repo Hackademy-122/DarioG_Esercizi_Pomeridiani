@@ -19,24 +19,37 @@
                             </ul>
                         </div>
                     @endif
-                    
+
                     <form action="{{route('store')}}" method="POST" enctype="multipart/form-data">
-                        
+
                         @csrf
-                        
+
                         <div class="mb-3">
                             <label for="inputName" class="form-label">Nome</label>
                             <input name="name" type="text" class="form-control" id="inputName" aria-describedby="nameHelp">
                         </div>
+
                         <div class="mb-3">
                             <label for="inputName" class="form-label">Prezzo</label>
-                            <input name="price" type="text" class="form-control" id="inputName" aria-describedby="nameHelp">
+                            <input name="price" type="number" class="form-control" id="inputNumber" aria-describedby="nameHelp">
                         </div>
+
+                        <div class="mb-3">
+                            <label class="form-label">Seleziona categoria:</label>
+                            <select class="form-control" name="categories[]" multiple id="selectCategory">
+                                @foreach ($categories as $category)
+                                    <option value="{{$category->id}}">
+                                        {{$category->category}}
+                                    </option>
+                                @endforeach
+                            </select>
+                        </div>
+
                         <div class="mb-3">
                             <label for="inputName" class="form-label">Foto</label>
                             <input name="img" type="file" class="form-control" id="inputName" aria-describedby="nameHelp">
                         </div>
-    
+
                         
                         <button type="submit" class="btn btn-primary">Crea</button>
                     </form>
@@ -45,4 +58,4 @@
             </div>
         </div>
     </x-layout>
-    
+
