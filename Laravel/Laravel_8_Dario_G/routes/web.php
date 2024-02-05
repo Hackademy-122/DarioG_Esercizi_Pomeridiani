@@ -25,6 +25,9 @@ Route::get('/edit/{article}', [ArticleController::class, 'edit'])->name('edit');
 Route::put('/update/{article}', [ArticleController::class, 'update'])->name('update');
 Route::delete('/delete/{article}', [ArticleController::class, 'destroy'])->name('delete');
 
+Route::get('/book', [PublicController::class, 'bookcreate'])->name('bookcreate');
+Route::post('/bookstore', [PublicController::class, 'bookstore'])->name('bookstore');
+
 
 
 

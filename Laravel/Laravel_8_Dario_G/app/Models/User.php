@@ -43,9 +43,10 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
-
+    //un utente ha più articoli
     public function articles(): HasMany
-    {
+    {   
+        
         return $this->hasMany(article::class);
     }
 }

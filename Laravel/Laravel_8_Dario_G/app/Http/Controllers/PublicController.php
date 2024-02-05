@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Book;
 use App\Models\Category;
 use Illuminate\Http\Request;
 use Illuminate\Foundation\Auth\User;
@@ -32,10 +33,10 @@ class PublicController extends Controller
     }
     
     public function utenti()
-{   
+    {   
     $utenti = User::all();
     return view ('allUsers', compact('utenti'));
-}
+    }
 
-
+    
 }

@@ -19,4 +19,13 @@ class Category extends Model
         //Dell'oggetto Category che hai creato recuperami tutti gli articoli strettamente collegati
         return $this->belongsToMany(Article::class);
     }
+
+    //Sto dicendo che tutti gli oggetti Category saranno collegati a piú oggetti Article
+    public function books(): BelongsToMany
+    {
+        //Dell'oggetto Category che hai creato recuperami tutti gli articoli strettamente collegati
+        return $this->belongsToMany(Book::class);
+    }
+
+    
 }

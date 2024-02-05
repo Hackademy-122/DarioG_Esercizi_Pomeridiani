@@ -23,10 +23,12 @@
             </div>
             <div class="col-2 text-center">
                 <a href="{{route('category')}}">Crea Categoria</a> <br>
-            </div> 
+            </div>
+            @auth
             <div class="col-2 text-center">
                 <a href="{{route('utenti')}}">Tutti gli utenti</a> <br>
-            </div>     
+            </div>
+            @endauth     
             <div class="col-2 text-center d-flex align-items-center">
                 <ul>
         <li class="nav-item dropdown">

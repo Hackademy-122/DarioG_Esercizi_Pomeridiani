@@ -25,7 +25,7 @@ class Article extends Model
         return $this->belongsTo(User::class);
     }
 
-    //Sto dicendo che tutti gli oggetti article saranno collegati a piú oggetti category
+    //Sto dicendo che tutti gli oggetti article sono collegati a piú oggetti category
     public function categories(): BelongsToMany
     {
         //Dell'oggetto Article che hai creato recuperami tutte le categorie strettamente collegate
