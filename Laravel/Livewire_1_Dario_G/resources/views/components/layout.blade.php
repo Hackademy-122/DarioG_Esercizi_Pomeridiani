@@ -9,7 +9,7 @@
 </head>
 <body>
     <div class="container">
-        <div class="row">
+        <div class="row text-center">
             <div class="col-4">
                 <a href="{{route('home')}}">Home</a>
             </div>    
@@ -17,7 +17,7 @@
                 <a href="{{route('create')}}">Inserisci</a>
             </div>
             <div class="col-4">
-                {{-- <a href="{{route('home')}}">Home</a> --}}
+                <a href="{{route('index')}}">Tutti</a>
             </div> 
 
         </div>

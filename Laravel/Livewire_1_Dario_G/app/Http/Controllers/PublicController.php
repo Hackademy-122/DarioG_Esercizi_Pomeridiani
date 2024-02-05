@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Article;
 use Illuminate\Http\Request;
 
 class PublicController extends Controller
@@ -16,5 +17,17 @@ class PublicController extends Controller
         return view ('create');
     }
 
+    public function index()
+    {   
+        $articles=Article::all();
+        return view ('index', compact('articles'));
+
+    }
+
+    public function show(Article $article)
+    {   
+        ;
+        return view ('show', compact('article'));
+    }
 
 }

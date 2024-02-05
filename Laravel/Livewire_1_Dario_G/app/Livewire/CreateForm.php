@@ -7,12 +7,12 @@ use Livewire\Component;
 
 class CreateForm extends Component
 
-{
+{   
     public $name;
     public $price;
 
     protected $rules = [
-        'name' => 'required|min:6',
+        'name' => 'required|min:5',
         'price' => 'required',
     ];
 
@@ -22,11 +22,11 @@ class CreateForm extends Component
         'price.required' => 'Il corpo é richiesto',
         
     ];
-
-    public function updated($property)
-    {
-        $this->validateOnly($property);
-    }
+    //!live validations. Inserire wire:model.live nel form per renderla efficace!
+    // public function updated($property)
+    // {
+    //     $this->validateOnly($property);
+    // }
 
     public function store()
     {
