@@ -10,6 +10,7 @@ class CreateForm extends Component
 {   
     public $name;
     public $price;
+    public $img;
 
     protected $rules = [
         'name' => 'required|min:5',
@@ -23,14 +24,18 @@ class CreateForm extends Component
         
     ];
     //!live validations. Inserire wire:model.live nel form per renderla efficace!
-    // public function updated($property)
-    // {
-    //     $this->validateOnly($property);
-    // }
+    //? public function updated($property)
+    //? {
+    // ?    $this->validateOnly($property);
+    //? }
 
     public function store()
-    {
+    {   
         $this->validate();
+
+        
+
+        
         Article::create([
             'name'=>$this->name,
             'price'=>$this->price,
@@ -40,6 +45,7 @@ class CreateForm extends Component
 
         return redirect(route('create'))->with('message', 'Aggiunto');
     }
+
 
     public function render()
     {

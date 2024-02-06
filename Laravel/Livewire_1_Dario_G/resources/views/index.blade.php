@@ -7,18 +7,26 @@
             </div>
         </div>
     </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                    @if (session('message'))
+    <div class="alert alert-success">
+        {{ session('message') }}
+    </div>
+@endif
+            </div>
+        </div>
+    </div>
+
     
-    <div class="container my-5">
-        <div class="row justify-content-center text-center">
-            @foreach ($articles as $item)
-                <div class="col-12 col-md-3 mb-5">
-                    <x-cards
-                        name="{{$item['name']}}"
-                        price="{{$item['price']}}"
-                        link="{{route('show', $item)}}"
-                    />
-                </div>
-            @endforeach
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-12">
+
+                    <livewire:article-table/>
+
+            </div>
         </div>
     </div>
     

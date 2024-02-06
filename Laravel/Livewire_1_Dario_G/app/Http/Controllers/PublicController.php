@@ -19,15 +19,20 @@ class PublicController extends Controller
 
     public function index()
     {   
-        $articles=Article::all();
-        return view ('index', compact('articles'));
+
+        return view ('index');
 
     }
 
     public function show(Article $article)
     {   
-        ;
+        
         return view ('show', compact('article'));
+    }
+
+    public function edit(Article $article)
+    {
+        return view ('edit', compact('article'));
     }
 
 }

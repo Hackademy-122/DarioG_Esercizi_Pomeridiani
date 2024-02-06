@@ -13,5 +13,6 @@ class Article extends Model
         [
             'name',
             'price',
+            'img',
         ];
 }
